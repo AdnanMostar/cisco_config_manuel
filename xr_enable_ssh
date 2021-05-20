@@ -1,5 +1,7 @@
 ##This is what i had to configured before i could use Ansible Scripts in CML LAB >  https://www.letsconfig.com/how-to-configure-ssh-on-cisco-ios-xr/
 conf t
+ssh server v2
+line default transport input ssh
 hostname iosxr-cml
 domain name ios-xr.local
 interface MgmtEth0/RP0/CPU0/0
@@ -7,9 +9,8 @@ interface MgmtEth0/RP0/CPU0/0
  no shut
  commit
  end
-cr##Crypto komanda je iz exec mode!!!!!!!!!! ypto key generate rsa
-#I ovo dole morao dodati
-conf t
-sh server v2
-line default transport input ssh
+crypto key generate rsa 
+
+#Crypto komanda je iz exec mode a user mora biti u admin grupi da bi moga konfigurisati!!!!!!
+
 
